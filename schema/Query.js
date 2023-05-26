@@ -1,0 +1,36 @@
+const graphql = require("graphql");
+const appointmentQuery = require("./queries/appointmentQuery");
+const clientQuery = require("./queries/clientQuery");
+const employeeQuery = require("./queries/employeeQuery");
+const loginQuery = require("./queries/loginQuery");
+const adminLoginQuery = require("./queries/adminLoginQuery");
+const allPersonalEventsQuery = require("./queries/allPersonalEventsQuery");
+const allAppointmentsQuery = require("./queries/allAppointmentsQuery");
+const ownAppointmentsQuery = require("./queries/ownAppointmentsQuery");
+const ownPastAppointmentsQuery = require("./queries/ownPastAppointmentsQuery");
+const clientsQuery = require("./queries/clientsQuery");
+const employeesQuery = require("./queries/employeesQuery");
+const servicessQuery = require("./queries/servicesQuery")
+const treatmentQuery = require("./queries/treatmentQuery")
+const { GraphQLObjectType } = graphql;
+
+const Query = new GraphQLObjectType({
+  name: "Query",
+  fields: {
+    appointment: appointmentQuery,
+    client: clientQuery,
+    employee: employeeQuery,
+    login: loginQuery,
+    adminLogin: adminLoginQuery,
+    all_personal_events: allPersonalEventsQuery,
+    all_appointments: allAppointmentsQuery,
+    own_appointments: ownAppointmentsQuery,
+    own_past_appointments: ownPastAppointmentsQuery,
+    clients: clientsQuery,
+    employees: employeesQuery,
+    services: servicessQuery,
+    treatments:treatmentQuery
+  },
+});
+
+module.exports = Query;
